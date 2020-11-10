@@ -1,5 +1,9 @@
 package ua.step.homework;
 
+
+import java.util.Arrays;
+import java.util.Collections;
+
 /**
  * В массиве хранится n явно заданных текстовых строк.
  * <p>
@@ -23,8 +27,7 @@ public class Task02 {
      * @return строка состоящая из элементов массив
      */
     public static String join(String[] strings) {
-        // TODO: удалите исключение и пишите здесь код
-        throw new RuntimeException("Not implemented yet");
+        return join(strings, " ");
     }
 
     /**
@@ -35,8 +38,11 @@ public class Task02 {
      * @return строка состоящая из элементов массива
      */
     public static String join(String[] strings, String glue) {
-        // TODO: удалите исключение и пишите здесь код
-        throw new RuntimeException("Not implemented yet");
+        String str = strings[0];
+        for (int i = 1; i < strings.length; i++) {
+            str += glue + strings[i];
+        }
+        return str;
     }
 
     /**
@@ -45,8 +51,7 @@ public class Task02 {
      * @param strings - массив строк для сортировки
      */
     public static void sortDesc(String[] strings) {
-        // TODO: удалите исключение и пишите здесь код
-        throw new RuntimeException("Not implemented yet");
+        Arrays.sort(strings, Collections.reverseOrder());
     }
 
     /**
@@ -55,7 +60,22 @@ public class Task02 {
      * @param strings - массив строк для сортировки
      */
     public static void sortByWordCount(String[] strings) {
-        // TODO: удалите исключение и пишите здесь код
-        throw new RuntimeException("Not implemented yet");
+        strings[0].length();
+        for (int i = 1; i < strings.length; i++) {
+            int inxex = i - 1;
+            int min = strings[inxex].length();
+            for (int j = i; j < strings.length; j++) {
+                if (strings[j].length() < min){
+                    min = strings[j].length();
+                    inxex = j;
+                }
+            }
+            if (inxex != i - 1){
+                String tmp = strings[i - 1];
+                strings[i - 1] = strings[inxex];
+                strings[inxex] = tmp;
+            }
+        }
+
     }
 }
